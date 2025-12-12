@@ -2,13 +2,16 @@
 
 export async function getDiscordStats() {
   try {
-    const response = await fetch("https://api.internal.hytalemodding.guide/guild/stats", {
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${process.env.INTERNAL_API_TOKEN}`,
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://api.internal.hytalemodding.guide/guild/stats",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.INTERNAL_API_TOKEN}`,
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -22,9 +25,6 @@ export async function getDiscordStats() {
     };
   } catch (error) {
     console.error("Failed to fetch Discord stats:", error);
-    return {
-      active_members: 0,
-      total_members: 0,
-    };
+    throw error;
   }
 }
