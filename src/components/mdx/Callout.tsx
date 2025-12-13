@@ -38,8 +38,8 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
   return (
     <div className={`my-4 rounded-r-lg border-l-4 p-4 ${styles[type]}`}>
       <div className="flex gap-3">
-        <Icon className="mt-0.5 h-5 w-5 flex-shrink-0" />
-        <div className="flex-1">
+        <Icon className="mt-0.5 h-5 w-5 shrink-0" />
+        <div className="min-w-0 flex-1">
           <div className="mb-1 font-semibold">{displayTitle}</div>
           <div>{children}</div>
         </div>
