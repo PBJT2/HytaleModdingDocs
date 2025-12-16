@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0/30 * * * *'
+    - cron: '0 * * * *'
     
 jobs:
   download:
