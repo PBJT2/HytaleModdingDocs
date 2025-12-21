@@ -4,21 +4,12 @@ import { FlipWords } from "@/components/ui/flip-words";
 import { Spotlight } from "@/components/ui/spotlight-new";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
+import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/ui/shadcn-io/marquee";
 import Image, { StaticImageData } from "next/image";
-import { useEffect, useState, use } from "react";
-import Autoplay from "embla-carousel-autoplay";
 import { localizeHref } from "@/lib/locale";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMessages } from "@/lib/hooks/useMessages";
-import { branch, commit } from "@/git-info.json";
 
 import WulfrumProsthesis from "./(showcaseImages)/wulfrum_prosthesis.png";
 import DragonFlyMount from "./(showcaseImages)/dragonfly_mount.gif";
@@ -29,18 +20,58 @@ import ElectricMotor from "./(showcaseImages)/HyEnergy_Electric_Motor.gif";
 import { DiscordButton } from "./discord-button";
 import { GitInfoButton } from "@/components/git-info-button";
 
-interface CarouselItem {
+interface ShowcaseItem {
   title: string;
   author: string;
   image: StaticImageData;
   link: string;
 }
 
+const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
+  return (
+    <Card className="relative overflow-hidden w-96 h-64">
+      <CardContent className="flex h-full items-center justify-center p-0">
+        <div className="from-card absolute z-20 flex size-full items-end bg-linear-to-t from-15% to-transparent to-30% p-6">
+          <div className="flex flex-1 flex-col">
+            <h3 className="z-20 text-xl font-bold line-clamp-2">
+              {item.title}
+            </h3>
+            <p className="text-muted-foreground text-base z-20">
+              {item.author}
+            </p>
+          </div>
+          <Button size="default" asChild className="ml-3">
+            <Link
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLinkIcon className="w-5 h-5" />
+            </Link>
+          </Button>
+        </div>
+        <Image
+          src={item.image}
+          alt={item.title}
+          className="absolute size-full object-cover opacity-30 blur-sm"
+        />
+        <div className="z-10 flex size-full items-center justify-center">
+          <Image
+            src={item.image}
+            alt={item.title}
+            className="h-full w-auto overflow-hidden object-contain"
+          />
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 export default function HomePage() {
   const params = useParams();
   const messages = useMessages();
-  const [isMobile, setIsMobile] = useState(false);
-  const carouselItems: CarouselItem[] = [
+  
+  const showcaseItems: ShowcaseItem[] = [
     {
       title: "Hynergy: Electric Motor",
       author: "by seyager",
@@ -73,32 +104,26 @@ export default function HomePage() {
     },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const repeatedShowcaseItems = [...showcaseItems, ...showcaseItems, ...showcaseItems];
 
   return (
     <div className="relative flex flex-1 overflow-hidden">
       <GitInfoButton />
       <Spotlight />
-      <div className="container mx-auto flex flex-1 flex-col items-center gap-8 px-12 py-8 lg:flex-row lg:justify-between lg:py-0">
-        <div className="max-w-xl space-y-6 max-lg:max-w-lg max-lg:py-32 max-lg:text-center">
-          <h1 className="text-4xl font-semibold text-balance">
-            {messages.home.title.split("{flipwords}")[0]}
-            <FlipWords words={messages.home.flipwords} />
-            {messages.home.title.split("{flipwords}")[1]}
-          </h1>
-          <h2 className="text-muted-foreground text-lg text-balance">
-            {messages.home.description}
-          </h2>
-          <div className="flex flex-wrap gap-4 max-lg:justify-center">
+      <div className="container mx-auto flex flex-1 flex-col items-center px-12 py-8">
+        <div className="max-w-4xl space-y-8 text-center py-32">
+          <div className="space-y-6">
+            <h1 className="text-4xl font-semibold text-balance">
+              {messages.home.title.split("{flipwords}")[0]}
+              <FlipWords words={messages.home.flipwords} />
+              {messages.home.title.split("{flipwords}")[1]}
+            </h1>
+            <h2 className="text-muted-foreground text-lg text-balance">
+              {messages.home.description}
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button asChild>
               <Link href={localizeHref("/docs", params.lang?.toString())}>
                 <BookIcon /> {messages.home.documentation}
@@ -116,67 +141,20 @@ export default function HomePage() {
             <DiscordButton />
           </div>
         </div>
-
-        <div className="relative w-full flex-1 lg:max-w-2xl">
-          <Carousel
-            opts={{
-              align: "center",
-            }}
-            orientation={isMobile ? "horizontal" : "vertical"}
-            className="w-full"
-            plugins={[
-              Autoplay({
-                delay: 4000,
-              }),
-            ]}
-          >
-            <CarouselContent className="-mt-1 h-96">
-              {carouselItems.map((item, index) => (
-                <CarouselItem key={index} className="pt-1 lg:basis-2">
-                  <div className="p-1">
-                    <Card className="relative overflow-hidden">
-                      <CardContent className="flex h-72 items-center justify-center p-6">
-                        <div className="from-card absolute z-20 flex size-full items-end bg-linear-to-t from-15% to-transparent to-30% p-6">
-                          <div className="flex flex-1 flex-col">
-                            <h1 className="z-20 text-2xl font-bold">
-                              {item.title}
-                            </h1>
-                            <h2 className="text-muted-foreground text-md z-20">
-                              {item.author}
-                            </h2>
-                          </div>
-                          <Button size="icon-lg" asChild>
-                            <Link
-                              href={item.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <ExternalLinkIcon />
-                            </Link>
-                          </Button>
-                        </div>
-                        <Image
-                          src={item.image}
-                          alt="test image"
-                          className="absolute size-full object-cover opacity-30 blur-md"
-                        />
-                        <div className="z-10 flex size-full items-center justify-center">
-                          <Image
-                            src={item.image}
-                            alt="test image"
-                            className="h-full w-auto overflow-hidden rounded-md object-contain"
-                          />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious alternativePosition />
-            <CarouselNext alternativePosition />
-          </Carousel>
-        </div>
+      </div>
+      
+      <div className="absolute left-0 right-0 bottom-32">
+        <Marquee className="h-64 w-full">
+          <MarqueeFade side="left" className="w-12" />
+          <MarqueeContent speed={40} pauseOnHover autoFill={false}>
+            {repeatedShowcaseItems.map((item, index) => (
+              <MarqueeItem key={`${item.title}-${index}`} className="mx-2">
+                <ShowcaseCard item={item} />
+              </MarqueeItem>
+            ))}
+          </MarqueeContent>
+          <MarqueeFade side="right" className="w-12" />
+        </Marquee>
       </div>
     </div>
   );
