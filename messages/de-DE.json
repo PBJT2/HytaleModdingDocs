@@ -3,7 +3,7 @@
   "nav": {
     "title": "Hytale Modding",
     "documentation": "Dokumentation",
-    "sponsors": "Sponsors",
+    "sponsors": "Sponsoren",
     "search": "Suche"
   },
   "home": {
@@ -19,25 +19,25 @@
     "forum": "Forum",
     "discord": "Werde Teil unserer Community!",
     "memberCount": "{count} Mitglieder",
-    "countdown": "Hytale releases in {countdown}",
+    "countdown": "Hytale erscheint in {countdown}",
     "countdownUnits": {
       "hours": "h",
       "minutes": "m",
       "seconds": "s"
     },
-    "hytaleReleased": "Hytale is out!"
+    "hytaleReleased": "Hytale ist da!"
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
-    "ourSponsors": "Our Sponsors"
+    "title": "Unterstütze uns",
+    "description": "HytaleModding ist ein Open-Source-Community-Projekt, und Teil des Managements der Community ist die Bezahlung für Dienste, Server und Infrastruktur, wie das Hosting dieser Website. Wenn du das Projekt unterstützen möchtest, solltest du ein Sponsor werden! Wir verwenden OpenCollective, damit du sehen kannst, wie Gelder verwendet werden, um die Community zu unterstützen.",
+    "ourSponsors": "Unsere Sponsoren"
   },
   "misc": {
     "loading": "Lädt...",
-    "failedToLoad": "Failed to load.",
+    "failedToLoad": "Fehler beim Laden.",
     "gitInfoUnavailable": "Git Info nicht verfügbar",
-    "credit": "Written by",
-    "supportUs": "Support Us"
+    "credit": "Geschrieben von",
+    "supportUs": "Unterstütze uns"
   },
   "meta": {
     "established_information": {

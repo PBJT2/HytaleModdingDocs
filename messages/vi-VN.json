@@ -1,5 +1,5 @@
 {
-  "displayName": "English",
+  "displayName": "Tiếng Việt",
   "nav": {
     "title": "Hytale Modding",
     "documentation": "Documentation",
@@ -11,13 +11,13 @@
     "flipwords": [
       "Guides",
       "Documentation",
-      "Tools",
+      "Resources",
       "Tutorials"
     ],
     "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
     "documentation": "Docs",
     "forum": "Forum",
-    "discord": "Join the community!",
+    "discord": "Tham gia vào cộng đồng discord ",
     "memberCount": "{count} Members",
     "countdown": "Hytale releases in {countdown}",
     "countdownUnits": {
@@ -59,7 +59,7 @@
         "title": "Gameplay"
       },
       "misc": {
-        "title": "Miscellaneous"
+        "title": "Khác"
       }
     },
     "guides": {
@@ -69,7 +69,7 @@
       }
     },
     "community_projects": {
-      "title": "Community Projects"
+      "title": "Dự án cộng đồng"
     }
   }
 }

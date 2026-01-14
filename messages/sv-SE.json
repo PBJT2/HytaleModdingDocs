@@ -1,24 +1,24 @@
 {
-  "displayName": "English",
+  "displayName": "Svenska",
   "nav": {
     "title": "Hytale Modding",
-    "documentation": "Documentation",
-    "sponsors": "Sponsors",
-    "search": "Search"
+    "documentation": "Dokumentation",
+    "sponsors": "Sponsorer",
+    "search": "Sök"
   },
   "home": {
-    "title": "#1 Resource for Hytale Modding {flipwords}",
+    "title": "#1 resurs för Hytale Modding {flipwords}",
     "flipwords": [
-      "Guides",
-      "Documentation",
-      "Tools",
-      "Tutorials"
+      "Guider",
+      "Dokumentation",
+      "Verktyg",
+      "Handledningar"
     ],
-    "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
-    "documentation": "Docs",
+    "description": "Den främsta community-resursen för moddning av Hytale, med\nomfattande guider, detaljerad dokumentation och viktiga verktyg för\natt starta din modding resa.",
+    "documentation": "Dokument",
     "forum": "Forum",
-    "discord": "Join the community!",
-    "memberCount": "{count} Members",
+    "discord": "Gå med i gemenskapen!",
+    "memberCount": "{count} Medlemmar",
     "countdown": "Hytale releases in {countdown}",
     "countdownUnits": {
       "hours": "h",
@@ -28,48 +28,48 @@
     "hytaleReleased": "Hytale is out!"
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
-    "ourSponsors": "Our Sponsors"
+    "title": "Stötta oss",
+    "description": "HytaleModding är ett communityprojekt med öppen källkod, och en del av att hantera communityn innebär att betala för tjänster, servrar och infrastruktur, som att vara värd för denna webbplats. Om du vill stödja projektet, överväg att bli en sponsor! Vi använder OpenCollective så att du kan se hur pengar används för att stödja gemenskapen.",
+    "ourSponsors": "Våra sponsorer"
   },
   "misc": {
-    "loading": "Loading...",
-    "failedToLoad": "Failed to load.",
-    "gitInfoUnavailable": "Git info not available",
-    "credit": "Written by",
-    "supportUs": "Support Us"
+    "loading": "Laddar...",
+    "failedToLoad": "Kunde inte ladda",
+    "gitInfoUnavailable": "Git info inte tillgänglig",
+    "credit": "Skrivet av",
+    "supportUs": "Stötta oss"
   },
   "meta": {
     "established_information": {
-      "title": "Established Information",
-      "separator": "Specific Categories",
+      "title": "Etablerad information",
+      "separator": "Specifika kategorier",
       "server": {
         "title": "Server",
         "content_categories": {
-          "title": "Content Categories"
+          "title": "Innehållskategorier"
         },
         "interface": {
-          "title": "Interface"
+          "title": "Gränssnitt"
         }
       },
       "client": {
-        "title": "Client"
+        "title": "Klient "
       },
       "gameplay": {
         "title": "Gameplay"
       },
       "misc": {
-        "title": "Miscellaneous"
+        "title": "Övrigt"
       }
     },
     "guides": {
-      "title": "Guides",
+      "title": "Guider",
       "java_basics": {
         "title": "Java Basics"
       }
     },
     "community_projects": {
-      "title": "Community Projects"
+      "title": "Gemenskapsprojekt"
     }
   }
 }

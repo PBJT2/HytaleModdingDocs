@@ -1,75 +1,75 @@
 {
-  "displayName": "English",
+  "displayName": "Magyar",
   "nav": {
     "title": "Hytale Modding",
-    "documentation": "Documentation",
-    "sponsors": "Sponsors",
-    "search": "Search"
+    "documentation": "Dokumentáció",
+    "sponsors": "Támogatók",
+    "search": "Keresés"
   },
   "home": {
-    "title": "#1 Resource for Hytale Modding {flipwords}",
+    "title": "A Top 1 oldal Hytale modoláshoz {flipwords}",
     "flipwords": [
-      "Guides",
-      "Documentation",
-      "Tools",
-      "Tutorials"
+      "Útmutatók",
+      "Dokumentáció",
+      "Eszközök",
+      "Tutorialok"
     ],
-    "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
-    "documentation": "Docs",
-    "forum": "Forum",
-    "discord": "Join the community!",
-    "memberCount": "{count} Members",
-    "countdown": "Hytale releases in {countdown}",
+    "description": "Az első számú közösségi oldal Hytale modoláshoz: teljes útmutatók, részletes dokumentáció, és elengedhetetlen eszközök amikkel azonnal elkezdhetsz modolni!",
+    "documentation": "Dokumentáció",
+    "forum": "Fórum",
+    "discord": "Csatlakozz a közösséghez!",
+    "memberCount": "{count} tag",
+    "countdown": "Hytale megjelenésig {countdown}",
     "countdownUnits": {
-      "hours": "h",
-      "minutes": "m",
-      "seconds": "s"
+      "hours": "ó",
+      "minutes": "p",
+      "seconds": "mp\n"
     },
-    "hytaleReleased": "Hytale is out!"
+    "hytaleReleased": "Megjelent a Hytale!"
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
-    "ourSponsors": "Our Sponsors"
+    "title": "Támogatás",
+    "description": "A HytaleModding egy nyílt forráskódú, közösség által finanszírozott projekt. A fenntartásba beletartozik a szolgáltatások, szerverek és infrastuktúra bérlése is, aminek ez a weboldal is része. Támogass minket! OpenCollective-et használunk a támogatások nyilvántartásához, ahol bárki megnézheti miként használjuk fel a bejövő összegeket. ",
+    "ourSponsors": "Támogatóink"
   },
   "misc": {
-    "loading": "Loading...",
-    "failedToLoad": "Failed to load.",
-    "gitInfoUnavailable": "Git info not available",
-    "credit": "Written by",
-    "supportUs": "Support Us"
+    "loading": "Betöltés...",
+    "failedToLoad": "Sikertelen betöltés.",
+    "gitInfoUnavailable": "Git adatok nem elérhetőek.",
+    "credit": "Készítette",
+    "supportUs": "Támogatás"
   },
   "meta": {
     "established_information": {
-      "title": "Established Information",
-      "separator": "Specific Categories",
+      "title": "Tényleges információk",
+      "separator": "Konkrét kategóriák",
       "server": {
-        "title": "Server",
+        "title": "Szerver",
         "content_categories": {
-          "title": "Content Categories"
+          "title": "Tartalom"
         },
         "interface": {
-          "title": "Interface"
+          "title": "Interfész"
         }
       },
       "client": {
-        "title": "Client"
+        "title": "Kliens"
       },
       "gameplay": {
-        "title": "Gameplay"
+        "title": "Játékmenet"
       },
       "misc": {
-        "title": "Miscellaneous"
+        "title": "Egyéb"
       }
     },
     "guides": {
-      "title": "Guides",
+      "title": "Útmutatók",
       "java_basics": {
-        "title": "Java Basics"
+        "title": "Java alapok"
       }
     },
     "community_projects": {
-      "title": "Community Projects"
+      "title": "Közösségi projektek"
     }
   }
 }

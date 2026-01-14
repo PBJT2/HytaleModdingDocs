@@ -29,14 +29,14 @@
   },
   "sponsors": {
     "title": "Sostienici",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
+    "description": "HytaleModding è un progetto comunitario e open-source, e parte della gestione della community comporta il pagamento di servizi, server e infrastrutture, come l'hosting per questo sito web. Se vuoi sostenere il progetto considera di diventare uno sponsor. Utilizziamo OpenCollective in modo da poter mostrare come i fondi sono utilizzati per supportare la community.",
     "ourSponsors": "I Nostri Sponsor"
   },
   "misc": {
     "loading": "Caricamento...",
-    "failedToLoad": "Failed to load.",
+    "failedToLoad": "Caricamento fallito.",
     "gitInfoUnavailable": "Informazioni di Git non disponibili",
-    "credit": "Written by",
+    "credit": "Scritto da",
     "supportUs": "Sostienici"
   },
   "meta": {

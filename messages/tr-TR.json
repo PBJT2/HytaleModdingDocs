@@ -1,75 +1,75 @@
 {
-  "displayName": "English",
+  "displayName": "Türkçe",
   "nav": {
     "title": "Hytale Modding",
     "documentation": "Dökümantasyon",
-    "sponsors": "Sponsors",
-    "search": "Search"
+    "sponsors": "Sponsorlar",
+    "search": "Ara"
   },
   "home": {
-    "title": "#1 Resource for Hytale Modding {flipwords}",
+    "title": "Hytale Modlama için 1 Numaralı Kaynak {flipwords}",
     "flipwords": [
-      "Guides",
-      "Documentation",
-      "Tools",
-      "Tutorials"
+      "Kılavuzlar",
+      "Dokümantasyon",
+      "Araçlar",
+      "Öğreticiler"
     ],
-    "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
-    "documentation": "Docs",
+    "description": "Hytale modlama serüveninize hızlı bir başlangıç yapmanız için kapsamlı rehberler, detaylı dokümantasyon ve gerekli tüm araçları sunan; Hytale modlamanın 1 numaralı topluluk kaynağı",
+    "documentation": "Belgeler",
     "forum": "Forum",
-    "discord": "Join the community!",
-    "memberCount": "{count} Members",
-    "countdown": "Hytale releases in {countdown}",
+    "discord": "Topluluğa katıl!",
+    "memberCount": "{count} Üye",
+    "countdown": "Hytale {countdown} içinde çıkıyor",
     "countdownUnits": {
       "hours": "h",
       "minutes": "m",
       "seconds": "s"
     },
-    "hytaleReleased": "Hytale is out!"
+    "hytaleReleased": "Hytale çıktı!"
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
-    "ourSponsors": "Our Sponsors"
+    "title": "Bizi destekleyin",
+    "description": "HytaleModding açık kaynaklı bir topluluk projesidir ve topluluğu yönetmek; bu web sitesini barındırmak gibi hizmetler, sunucular ve altyapı masraflarını karşılamayı da içerir. Projeye destek olmak isterseniz, sponsor olmayı düşünebilirsiniz! Fonların topluluğu desteklemek amacıyla nasıl kullanıldığını görebilmeniz için OpenCollective kullanıyoruz.",
+    "ourSponsors": "Sponsorlarımız"
   },
   "misc": {
-    "loading": "Loading...",
-    "failedToLoad": "Failed to load.",
+    "loading": "Yükleniyor...",
+    "failedToLoad": "Yüklenemedi.",
     "gitInfoUnavailable": "Git bilgisi bulunamadı",
-    "credit": "Written by",
-    "supportUs": "Support Us"
+    "credit": "Yazan",
+    "supportUs": "Bizi Destekle"
   },
   "meta": {
     "established_information": {
-      "title": "Established Information",
-      "separator": "Specific Categories",
+      "title": "Yerleşik Bilgiler",
+      "separator": "Belirli Kategoriler",
       "server": {
-        "title": "Server",
+        "title": "Sunucu",
         "content_categories": {
-          "title": "Content Categories"
+          "title": "İçerik Kategorileri"
         },
         "interface": {
-          "title": "Interface"
+          "title": "Arayüz"
         }
       },
       "client": {
-        "title": "Client"
+        "title": "İstemci"
       },
       "gameplay": {
-        "title": "Gameplay"
+        "title": "Oynanış"
       },
       "misc": {
-        "title": "Miscellaneous"
+        "title": "Çeşitli"
       }
     },
     "guides": {
-      "title": "Guides",
+      "title": "Kılavuzlar",
       "java_basics": {
-        "title": "Java Basics"
+        "title": "Java Temelleri"
       }
     },
     "community_projects": {
-      "title": "Community Projects"
+      "title": "Topluluk Projeleri"
     }
   }
 }

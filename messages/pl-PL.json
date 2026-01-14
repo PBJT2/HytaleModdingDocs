@@ -1,75 +1,75 @@
 {
-  "displayName": "English",
+  "displayName": "Polski",
   "nav": {
     "title": "Hytale Modding",
-    "documentation": "Documentation",
-    "sponsors": "Sponsors",
-    "search": "Search"
+    "documentation": "Dokumentacja",
+    "sponsors": "Sponsorzy",
+    "search": "Szukaj"
   },
   "home": {
-    "title": "#1 Resource for Hytale Modding {flipwords}",
+    "title": "#1 Zasób do Modyfikowania Hytale {flipwords}",
     "flipwords": [
-      "Guides",
-      "Documentation",
-      "Tools",
-      "Tutorials"
+      "Poradniki",
+      "Dokumentacja",
+      "Narzędzia",
+      "Samouczki"
     ],
-    "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
-    "documentation": "Docs",
+    "description": "Najlepsze zasoby społeczności do modowania Hytale, zawierające kompleksowe poradniki, obszerną dokumentację oraz narzędzia przydatne do rozpoczęcia swojej przygody z modowaniem.",
+    "documentation": "Dokumentacja",
     "forum": "Forum",
-    "discord": "Join the community!",
-    "memberCount": "{count} Members",
-    "countdown": "Hytale releases in {countdown}",
+    "discord": "Dołącz do społeczności!",
+    "memberCount": "{count} Członków",
+    "countdown": "Premiera Hytale za {countdown}",
     "countdownUnits": {
       "hours": "h",
       "minutes": "m",
       "seconds": "s"
     },
-    "hytaleReleased": "Hytale is out!"
+    "hytaleReleased": "Hytale już dostępny!"
   },
   "sponsors": {
-    "title": "Support Us",
-    "description": "HytaleModding is an open-source community project, and part of managing the community involves paying for services, servers and infrastructure, like hosting this website. If you would like to support the project, consider becoming a sponsor! We use OpenCollective so you can see how funds are being used to support the community.",
-    "ourSponsors": "Our Sponsors"
+    "title": "Wesprzyj Nas",
+    "description": "HytaleModding jest projektem społeczności open source, a elementem zarządzania społecznością jest płacenie za usługi, serwery i infrastrukturę, jak na przykład hostowanie tej strony internetowej. Jeśli chciałbyś wesprzeć projekt, rozważ zostanie sponsorem! Używamy OpenCollective, żebyś widział, jak nasze środki są wykorzystywane do wspierania społeczności.",
+    "ourSponsors": "Nasi Sponsorzy"
   },
   "misc": {
-    "loading": "Loading...",
-    "failedToLoad": "Failed to load.",
-    "gitInfoUnavailable": "Git info not available",
-    "credit": "Written by",
-    "supportUs": "Support Us"
+    "loading": "Wczytywanie…",
+    "failedToLoad": "Nie udało się wczytać.",
+    "gitInfoUnavailable": "Informacje z Git'a niedostępne",
+    "credit": "Napisane przez",
+    "supportUs": "Wesprzyj Nas"
   },
   "meta": {
     "established_information": {
-      "title": "Established Information",
-      "separator": "Specific Categories",
+      "title": "Ustalone informacje",
+      "separator": "Określone Kategorie",
       "server": {
-        "title": "Server",
+        "title": "Serwer",
         "content_categories": {
-          "title": "Content Categories"
+          "title": "Kategorie treści"
         },
         "interface": {
-          "title": "Interface"
+          "title": "Interfejs"
         }
       },
       "client": {
-        "title": "Client"
+        "title": "Klient"
       },
       "gameplay": {
-        "title": "Gameplay"
+        "title": "Rozgrywka"
       },
       "misc": {
-        "title": "Miscellaneous"
+        "title": "Pozostałe"
       }
     },
     "guides": {
-      "title": "Guides",
+      "title": "Poradniki",
       "java_basics": {
-        "title": "Java Basics"
+        "title": "Podstawy Java"
       }
     },
     "community_projects": {
-      "title": "Community Projects"
+      "title": "Projekty Społeczności"
     }
   }
 }

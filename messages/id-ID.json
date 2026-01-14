@@ -1,5 +1,5 @@
 {
-  "displayName": "English",
+  "displayName": "Bahasa Indonesia",
   "nav": {
     "title": "Hytale Modding",
     "documentation": "Documentation",
@@ -14,10 +14,10 @@
       "Tools",
       "Tutorials"
     ],
-    "description": "The number one community resource for modding Hytale, featuring\ncomprehensive guides, detailed documentation, and essential tools to\nkickstart your modding journey.",
-    "documentation": "Docs",
+    "description": "The number one community resource for modding Hytale, featuring comprehensive guides, detailed documentation, and essential tools to kickstart your modding journey.",
+    "documentation": "Documentation",
     "forum": "Forum",
-    "discord": "Join the community!",
+    "discord": "Discord",
     "memberCount": "{count} Members",
     "countdown": "Hytale releases in {countdown}",
     "countdownUnits": {
