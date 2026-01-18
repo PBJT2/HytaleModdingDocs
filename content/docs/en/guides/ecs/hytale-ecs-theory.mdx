@@ -15,7 +15,7 @@ The `Store` class is the core of Hytale's ECS system, it's responsible for stori
 ## EntityStore
 
 When looking through Hytale's server code you will find that most of the time `Store` will be of type `EntityStore`. This name can be misleading as it might suggest that it's a `Store` for entities. 
-But didn't we just say that the base `Store` already stores entities? The `EntityStore` class implements `WorldProvider` meaning that `EntityStore` is responsible for accessign a specific Hytale `World`. It maintains internal maps `entitiesByUuid` and `networkIdToRef`, allowing you to find a specific entity by its persistent ID or its networking ID.
+But didn't we just say that the base `Store` already stores entities? The `EntityStore` class implements `WorldProvider` meaning that `EntityStore` is responsible for accessing a specific Hytale `World`. It maintains internal maps `entitiesByUuid` and `networkIdToRef`, allowing you to find a specific entity by its persistent ID or its networking ID.
 
 Every Entity has a `UUIDComponent` as well as a `NetworkId` which are used by the `EntityStore` to lookup entities inside of the `Store`.
 
