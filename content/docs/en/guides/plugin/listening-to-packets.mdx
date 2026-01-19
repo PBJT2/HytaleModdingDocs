@@ -6,6 +6,8 @@ authors:
       url: https://itsneil.dev
     - name: musava_ribica
       url: https://forum.hytalemodding.dev/u/musava_ribica
+    - name: Drakon
+      url: https://github.com/Drakonkinst
 ---
 
 In this guide, you'll learn how to listen to packets that are being sent or received from the Client.
@@ -17,6 +19,95 @@ The server has a built-in adapter system that makes injection very straightforwa
 The `PacketAdapters` class provides several `registerInbound` method overloads. Possible argument types are `PacketWatcher`, `PacketFilter`, `PlayerPacketWatcher` and `PlayerPacketFilter`.
 
 The difference between `PacketWatcher` and `PacketFilter` is that the `PacketFilter` can prevent packet processing and block the packet from reaching the server (for inbound) or reaching the player (for outbound).
+
+## Player Packet Tracker (Utility)
+
+To get a better understanding of how packets are sent to/from players, you can add this snippet below to track packets sent to/from players:
+
+```java
+public class PlayerPacketTracker {
+    private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+
+    private static class PlayerStats {
+        final Map<String, AtomicInteger> sent = new ConcurrentHashMap<>();
+        final Map<String, AtomicInteger> received = new ConcurrentHashMap<>();
+    }
+    private static final Map<String, PlayerStats> stats = new ConcurrentHashMap<>();
+
+    private static String getPlayerName(PacketHandler handler) {
+        if (handler instanceof GamePacketHandler gpHandler) {
+            return gpHandler.getPlayerRef().getUsername();
+        }
+        return null;
+    }
+
+    public static void registerPacketCounters() {
+        PacketAdapters.registerInbound((PacketHandler handler, Packet packet) -> {
+            String playerName = getPlayerName(handler);
+            if (playerName != null) {
+                stats.computeIfAbsent(playerName, k -> new PlayerStats())
+                        .received.computeIfAbsent(packet.getClass().getSimpleName(), k -> new AtomicInteger(0))
+                        .incrementAndGet();
+            }
+        });
+
+        // Listener for sent packets (Outbound)
+        PacketAdapters.registerOutbound((PacketHandler handler, Packet packet) -> {
+            String playerName = getPlayerName(handler);
+            if (playerName != null) {
+                stats.computeIfAbsent(playerName, k -> new PlayerStats())
+                        .sent.computeIfAbsent(packet.getClass().getSimpleName(), k -> new AtomicInteger(0))
+                        .incrementAndGet();
+            }
+        });
+
+        // Schedule logging every 3 seconds
+        HytaleServer.SCHEDULED_EXECUTOR.scheduleAtFixedRate(() -> {
+            if (stats.isEmpty()) return;
+
+            for (Map.Entry<String, PlayerStats> entry : stats.entrySet()) {
+                String player = entry.getKey();
+                PlayerStats pStats = entry.getValue();
+
+                StringBuilder sb = new StringBuilder();
+
+                // Build Sent string
+                List<String> sentLogs = new ArrayList<>();
+                pStats.sent.forEach((type, atomic) -> {
+                    int count = atomic.getAndSet(0);
+                    if (count > 0) {
+                        sentLogs.add(type + " x" + count);
+                    }
+                });
+
+                if (!sentLogs.isEmpty()) {
+                    sb.append("Sent ").append(String.join(", ", sentLogs));
+                }
+
+                // Build Received string
+                List<String> recvLogs = new ArrayList<>();
+                pStats.received.forEach((type, atomic) -> {
+                    int count = atomic.getAndSet(0);
+                    if (count > 0) {
+                        recvLogs.add(type + " x" + count);
+                    }
+                });
+
+                if (!recvLogs.isEmpty()) {
+                    if (!sb.isEmpty()) sb.append("\n");
+                    sb.append("Received ").append(String.join(", ", recvLogs));
+                }
+
+                if (!sb.isEmpty()) {
+                    LOGGER.atInfo().log("To " + player + ":\n" + sb);
+                }
+            }
+        }, 3, 3, TimeUnit.SECONDS);
+    }
+}
+```
+
+Then call `PlayerPacketTracker.registerPacketCounters();` in your `setup()` function.
 
 ## Injecting our own function to the PacketAdapter.
 
@@ -35,7 +126,7 @@ PacketAdapters.registerOutbound((PacketHandler handler, Packet packet) -> {
 });
 ```
 
-## Modfying an incoming packet 
+## Modfying an incoming packet
 
 In the following example, we modify a incoming packet containing skin data to remove that data from the packet. With this, every player will have default skin.
 
@@ -44,6 +135,28 @@ PacketAdapters.registerInbound((PacketHandler handler, Packet packet) -> {
     if (packet instanceof PlayerOptions skinPacket) {
         skinPacket.skin = null;
     }
+});
+```
+
+### Player packet handling
+
+We can use another method in `PacketAdapter` to specifically target packets send by a player.
+In this method, returning `true` cancels the packet while returning `false` allows the packet to pass through.
+This allows you to add your own logic to packets.
+
+<Callout type="warning">
+While you can cancel packets entirely, client-side prediction still occurs and the targeted client will still see
+their movement inputs work as normal. This requires extra work (guide pending) to prevent the player from taking
+certain actions; cancelling packets is likely not the right approach.
+</Callout>
+
+```java
+PacketAdapters.registerInbound((PlayerPacketFilter) (player,  packet) -> {
+    if (packet instanceof ClientMovement movementPacket) {
+        // Do some logic here, then return true to cancel the packet
+        return true;
+    }
+    return false;
 });
 ```
 
