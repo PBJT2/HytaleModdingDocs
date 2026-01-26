@@ -68,7 +68,7 @@ public class YourPlayerData implements Component<EntityStore> {
         this.someMap = clone.someMap;
     }
 
-    @NullableDecl
+    @Nonnull
     @Override
     public Component<EntityStore> clone() {
         return new YourPlayerData(this);
@@ -84,7 +84,7 @@ public class YourPlugin extends JavaPlugin {
 
     private ComponentType<EntityStore, YourPlayerData> yourPlayerDataComponent;
 
-    public YourPlugin(@NonNullDecl JavaPluginInit init) {
+    public YourPlugin(@Nonnull JavaPluginInit init) {
         super(init);
     }
 
