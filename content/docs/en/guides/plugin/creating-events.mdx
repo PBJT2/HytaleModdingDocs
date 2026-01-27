@@ -52,10 +52,10 @@ class ExampleCancelCraft extends EntityEventSystem<EntityStore, CraftRecipeEvent
 
     @Override
     public void handle(int index,
-                       @NonNullDecl ArchetypeChunk<EntityStore> archetypeChunk,
-                       @NonNullDecl Store<EntityStore> store,
-                       @NonNullDecl CommandBuffer<EntityStore> commandBuffer,
-                       @NonNullDecl CraftRecipeEvent.Pre craftRecipeEvent) {
+                       @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+                       @Nonnull Store<EntityStore> store,
+                       @Nonnull CommandBuffer<EntityStore> commandBuffer,
+                       @Nonnull CraftRecipeEvent.Pre craftRecipeEvent) {
         CraftingRecipe recipe = craftRecipeEvent.getCraftedRecipe();
         if (recipe.getInput() != null) {
             for (MaterialQuantity mq : recipe.getInput()) {

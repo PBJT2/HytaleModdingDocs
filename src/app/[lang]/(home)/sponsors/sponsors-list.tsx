@@ -6,6 +6,7 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
+import Image from "next/image"
 
 import { useState, useEffect, ViewTransition, startTransition } from "react";
 import { getSponsors } from "../actions";
@@ -13,10 +14,10 @@ import { useMessages } from "@/lib/hooks/useMessages";
 
 const featuredSponsors: Sponsor[] = [
   {
-    MemberId: "template-sponsor",
-    name: "Template until we have a sponsor",
-    image: "/branding/logo-light-348.png",
-    website: "https://hytalemodding.guide",
+    MemberId: "BisectHosting",
+    name: "BisectHosting",
+    image: "/sponsors/bisecthosting.png",
+    website: "https://bisecthosting.com",
   },
 ];
 
@@ -54,33 +55,33 @@ export function SponsorsList() {
   }, []);
 
   return (
-    <div className="space-y-4">
-      <h3 className="text-xl font-semibold">{messages.sponsors.ourSponsors}</h3>
-      {/* <div className="space-y-4 pt-8">
-        <div className="space-y-3">
+    <div className="space-y-2">
+      <h3 className="text-xl font-semibold text-center">{messages.sponsors.ourSponsors}</h3>
+      <div className="pt-1">
+        <div className="flex justify-center gap-4">
           {featuredSponsors.map((sponsor) => (
             <a
               key={sponsor.name}
-              href={sponsor.url}
+              href={sponsor.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-fd-border bg-fd-card hover:bg-fd-accent block overflow-hidden rounded-lg border transition-all hover:shadow-lg"
+              className="transition-all hover:scale-105"
             >
-              <div className="relative h-24 w-full">
+              <div className="relative h-32 w-48">
                 <Image
-                  src={sponsor.logo}
+                  src={sponsor.image}
                   alt={sponsor.name}
                   fill
-                  className="object-contain p-4"
+                  className="object-contain"
                 />
               </div>
             </a>
           ))}
         </div>
-      </div> */}
+      </div>
 
       <ViewTransition update="blur-scale-transition">
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-2 pt-2">
           {state === "loading" && (
             <p className="text-muted-foreground">{messages.misc.loading}</p>
           )}

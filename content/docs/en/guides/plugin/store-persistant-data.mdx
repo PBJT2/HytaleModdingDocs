@@ -2,12 +2,14 @@
 title: "Storing Persistant Data on the Player"
 description: "Learn how to save and load persistant data using Components"
 authors:
-    - name: "ArcticDev"
-      url: "https://github.com/ArcticRaven"
     - name: "Neil Revin"
       url: "https://itsneil.dev/"
+    - name: "ArcticDev"
+      url: "https://github.com/ArcticRaven"
     - name: "oskarscot"
       url: "https://oskar.scot"
+    - name: "JammingEng"
+      url: "https://github.com/JammingEnd"
 ---
 
 Here is how to store persistent data using a custom component on a Player.
@@ -38,16 +40,20 @@ public class YourPlayerData implements Component<EntityStore> {
 
     public static final BuilderCodec<YourPlayerData> CODEC =
             BuilderCodec.builder(YourPlayerData.class, YourPlayerData::new)
-            .addField(new KeyedCodec<>("SomeInteger", Codec.INTEGER),
+            .append(new KeyedCodec<>("SomeInteger", Codec.INTEGER),
                     (data, value) -> data.someInteger = value, // setter
                     data -> data.someInteger) // getter
-            .addField(new KeyedCodec<>("SomeString", Codec.STRING),
+            .addValidator(Validators.nonNull())
+            .add()
+            .append(new KeyedCodec<>("SomeString", Codec.STRING),
                     (data, value) -> data.someString = value, // setter
                     data -> data.someString) // getter
-            .addField(new KeyedCodec<>("SomeMap",
+            .add()
+            .append(new KeyedCodec<>("SomeMap",
                             new MapCodec<>(Codec.STRING, HashMap::new, false)),
                     (data, value) -> data.someMap = value, // setter
                     data -> data.someMap) // getter
+            .add()
             .build();
 
 
@@ -68,7 +74,7 @@ public class YourPlayerData implements Component<EntityStore> {
         this.someMap = clone.someMap;
     }
 
-    @NullableDecl
+    @Nonnull
     @Override
     public Component<EntityStore> clone() {
         return new YourPlayerData(this);
@@ -84,7 +90,7 @@ public class YourPlugin extends JavaPlugin {
 
     private ComponentType<EntityStore, YourPlayerData> yourPlayerDataComponent;
 
-    public YourPlugin(@NonNullDecl JavaPluginInit init) {
+    public YourPlugin(@Nonnull JavaPluginInit init) {
         super(init);
     }
 
@@ -102,6 +108,35 @@ public class YourPlugin extends JavaPlugin {
     }
 }
 ```
+
+## Using your Component
+
+To use your newly created component, you can add the Component to a player using the `addComponent` method, although this only adds it temporarily, meaning when the player/entity leaves the world, the component is removed. You can use `putComponent` to ensure the component persists between sessions.
+
+```java
+// You will need the Ref and Store to apply components
+private void someEntryMethod(@Nonnull Ref<EntityStore> ref, @Nonnull Store<EntityStore> store)
+{
+       // Any entity will work, for now we will use the player
+      Player player = (Player) store.getComponent(ref, Player.getComponentType());
+
+      // since were using putComponent, it could be useful to check if it already exists on the player in case we want to update it
+     if(store.getComponent(ref, YourPlugin.instance().getYourPlayerDataComponent()) != null)
+     {
+          // here we implement logic that updates the component
+         var comp = store.getComponent(ref, YourPlugin.instance().getYourPlayerDataComponent())
+         // declare public fields or methods in the component class
+         comp.SomeString = "An Updated Field";
+     } else {
+          // Here we put the component
+          var myCustomComp = new CustomComponent();
+          // declare public fields or methods in the component class
+          myCustomComp.SomeString = "Edited String";
+        
+          // putComponent allows you to insert declared objects
+          store.putComponent(ref, YourPlugin.instance().getYourPlayerDataComponent(), myCustomComp);
+     }
+}```
 
 ## Using your Data
 

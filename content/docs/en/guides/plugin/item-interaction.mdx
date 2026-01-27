@@ -115,7 +115,7 @@ To create a custom interaction, you will need to define the interaction behavior
 ```java
 public class MyCustomInteraction extends SimpleInstantInteraction {
     @Override
-    protected void firstRun(@NonNullDecl InteractionType interactionType, @NonNullDecl InteractionContext interactionContext, @NonNullDecl CooldownHandler cooldownHandler) {
+    protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
         // Custom behavior when the item is used
     }
 }
@@ -130,7 +130,7 @@ public class MyCustomInteraction extends SimpleInstantInteraction {
     ).build();
 
     @Override
-    protected void firstRun(@NonNullDecl InteractionType interactionType, @NonNullDecl InteractionContext interactionContext, @NonNullDecl CooldownHandler cooldownHandler) {
+    protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
         // Custom behavior when the item is used
     }
 }
@@ -140,7 +140,7 @@ Finally, register the interaction in your plugin's main class:
 
 ```java
 public class MyPlugin extends JavaPlugin {
-    public MyPlugin(@NonNull JavaPluginInit init) {
+    public MyPlugin(@Nonnull JavaPluginInit init) {
         super(init);
     }
 
@@ -182,7 +182,7 @@ public class SendMessageInteraction extends SimpleInstantInteraction {
     public static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     @Override
-    protected void firstRun(@NonNullDecl InteractionType interactionType, @NonNullDecl InteractionContext interactionContext, @NonNullDecl CooldownHandler cooldownHandler) {
+    protected void firstRun(@Nonnull InteractionType interactionType, @Nonnull InteractionContext interactionContext, @Nonnull CooldownHandler cooldownHandler) {
         CommandBuffer<EntityStore> commandBuffer = interactionContext.getCommandBuffer();
         if (commandBuffer == null) {
             interactionContext.getState().state = InteractionState.Failed;
