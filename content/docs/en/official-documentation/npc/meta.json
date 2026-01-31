@@ -1,6 +1,6 @@
 {
     "title": "NPC Documentation",
-    "icon": "User",
+    "icon": "Bot",
     "pages": [
         "1-know-your-enemy.mdx",
         "2-getting-started-with-templates.mdx",
