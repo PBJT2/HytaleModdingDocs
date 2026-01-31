@@ -27,7 +27,7 @@ authors:
         },
         "MaxHealth": {
             "Value": 100,
-            "Description": "Max health for the NPO"
+            "Description": "Max health for the NPC"
         },
         "EatItem": {
             "Value": "Food_Beef_Raw",
@@ -39,7 +39,7 @@ authors:
         },
         "FoodNPCGroups": {
             "Value": ["Edible_Rat"],
-            "Description": "The groups of edible WPCs that will come from triggering the beacon"
+            "Description": "The groups of edible NPCs that will come from triggering the beacon"
         },
         "FoodNPCBeacon": {
             "Value": "Edible_Rat",
@@ -67,11 +67,11 @@ authors:
         },
         "DistractedPenalty": {
             "Value": 2,
-            "Description": "A factor by which view zange and hearing range will be divided when this NPC is distracted"
+            "Description": "A factor by which view range and hearing range will be divided when this NPC is distracted"
         },
         "AbsoluteDetectionRange": {
             "value": 4,
-            "Description": "The rande at which a target is guaranteed to be detected. If vero, absolute detection will be disabled."
+            "Description": "The range at which a target is guaranteed to be detected. If vero, absolute detection will be disabled."
         },
         "WarnGroups": {
             "Value": ["Goblin_Scrapper"],
@@ -91,7 +91,7 @@ authors:
         },
         "AttackPauseRange": {
             "Value": [1.5, 2],
-            "Description": "The zange for absolute minimum time before an MPC can execute a second attack (or block)."
+            "Description": "The range for absolute minimum time before an NPC can execute a second attack (or block)."
         },
         "CombatRelativeTurnSpeed": {
             "value": 1.5,
@@ -107,7 +107,7 @@ authors:
         },
         "LeashTimer": {
             "Value": [3, 5],
-            "Description": "How long the HPC must be more than the minimum distance form the player and too far from leash before giving up."
+            "Description": "How long the NPC must be more than the minimum distance form the player and too far from leash before giving up."
         },
         "HardLeashDistance": {
             "Value": 60,
@@ -289,7 +289,7 @@ authors:
                     ]
                 },
                 {
-                    "Reference": "Component_Instruction_Damage_Chack",
+                    "Reference": "Component_Instruction_Damage_Check",
                     "Modify": {
                         "ExportStates": ["Alerted", "Alerted"],
                         "AlertedRange": { "Compute": "AlertedRange" }
@@ -304,7 +304,7 @@ authors:
                             "ViewSector": { "Compute": "ViewSector" },
                             "HearingRange": { "Compute": "HearingRange" },
                             "ThroughWalls": false,
-                            "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectsonRange" },
+                            "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
                             "Attitudes": ["Hostile"]
                         },
                         "Actions": [
@@ -466,7 +466,7 @@ authors:
                             "ViewSector": { "Compute": "ViewSector" },
                             "HearingRange": { "Compute": "ViewRange / DistractedPenalty" },
                             "ThroughWalls": false,
-                            "AbsoluteDetectionRange": { "Compute": "AbsolutebetectionRange" },
+                            "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
                             "Attitudes": ["Hostile"]
                         },
                         "Actions": [
@@ -749,7 +749,7 @@ authors:
                             {
                                 "Type": "Target",
                                 "TargetSlot": "LockedTarget",
-                                "Range": { "Compute": "AbsoluteBetectionRange" }
+                                "Range": { "Compute": "AbsoluteDetectionRange" }
                             }
                         ]
                     },

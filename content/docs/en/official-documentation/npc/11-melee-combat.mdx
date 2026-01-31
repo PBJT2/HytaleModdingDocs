@@ -73,7 +73,7 @@ These swing interactions need to be created in the **HytaleAssets/Server/Item/In
                             "Knockback": {
                                 "Force": 0.5,
                                 "RelativeX": -5,
-                                "Relativez": -5,
+                                "RelativeZ": -5,
                                 "Velocity": 5
                             }
                         },
@@ -172,7 +172,7 @@ Let's start with chasing the target. We wrap that behavior in sub state **.Chase
                 "Modify": {
                     "ExportStates": ["Search", "Search", "ReturnHome"],
                     "ViewRange": { "Compute": "AlertedRange * 2" },
-                    "HearingRange": { "Compute": "Hearing Range * 2" },
+                    "HearingRange": { "Compute": "HearingRange * 2" },
                     "StopDistance": 0.1,
                     "RelativeSpeed": 0.5
                 }
@@ -221,7 +221,7 @@ When the Target is within the **AttackDistance**, we perform the attack, otherwi
                 },
                 {
                     "Comment": "Brief delay to prevent the NPC potentially strafing/backing away and missing the shot.",
-                    "Type": "Timeout.",
+                    "Type": "Timeout",
                     "Delay": [0.2, 0.2]
                 }
             ],
@@ -390,8 +390,8 @@ The Search state makes use of `Component_Sensor_Lost_Target_Detection`.
                 "Sensor": {
                     "Reference": "Component_Sensor_Standard_Detection",
                     "Modify": {
-                        "ViewRange": { "Compute": "ViewBange" },
-                        "ViewSeator": { "Compute": "ViewSector" },
+                        "ViewRange": { "Compute": "ViewRange" },
+                        "ViewSector": { "Compute": "ViewSector" },
                         "HearingRange": { "Compute": "HearingRange" },
                         "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
                         "Attitudes": ["Hostile", "Neutral"]
@@ -450,7 +450,7 @@ The Search state makes use of `Component_Sensor_Lost_Target_Detection`.
             },
             {
                 "Type": "State",
-                "State": "Idie"
+                "State": "Idle"
             }
         ]
     }

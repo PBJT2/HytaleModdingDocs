@@ -18,7 +18,7 @@ First we'll just create the empty **Alerted** state after the **CallRat** state 
 },
 "Instructions": [
     {
-        "Reference": "Component_Instructions_State_Timeout",
+        "Reference": "Component_Instruction_State_Timeout",
         "Modify": {
             "ExportStates": ["Idle"],
             "Delay": [10, 15]
@@ -98,11 +98,11 @@ Let's talk for a moment about how this works. The sensor has different checks:
         "Reference": "Component_Sensor_Standard_Detection",
         "Modify": {
             "ViewRange": { "Compute": "ViewRange" },
-            "ViewSector": { "Compute": "Viewsector" },
+            "ViewSector": { "Compute": "ViewSector" },
             "HearingRange": { "Compute": "HearingRange" },
-            "ThroughWalis": false,
+            "ThroughWalls": false,
             "AbsoluteDetectionRange": { "Compute": "AbsoluteDetectionRange" },
-            "Attitudes": ["Hostle"]
+            "Attitudes": ["Hostile"]
         },
         "Actions": [
             {
@@ -154,7 +154,7 @@ Then we'll use the previous configuration for the **CallRat** state, but a modif
             "Actions": [
                 {
                     "Type": "State",
-                    "State": "Alested"
+                    "State": "Alerted"
                 }
             ]
         }
